@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="多功能视频解析工具，支持主流平台视频解析播放">
+    <title>智能视频解析助手</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="theme-toggle" onclick="toggleTheme()">🌓 切换模式</div>
+        <h1>🎬 智能视频解析助手</h1>
+        
+        <div class="input-group">
+            <label for="videoUrl">🔗 视频链接：</label>
+            <input type="url" id="videoUrl" 
+                   placeholder="请输入视频链接（支持抖音、B站、腾讯视频等）"
+                   pattern="https?://.+" 
+                   required>
+        </div>
+
+        <div class="input-group">
+            <label for="parseApi">⚙️ 解析接口：</label>
+            <select id="parseApi">
+                <option value="https://jx.xmflv.com/?url=">🦐 虾米解析</option>
+                <option value="https://im1907.top/?jx=">🎥 M1907解析</option>
+                <option value="https://jx.xymp4.cc/?url=">🐟 咸鱼解析</option>
+                <option value="https://jx.2s0.cn/player/?url=">🚀 极速解析</option>
+                <option value="https://jx.playerjy.com/?url=">🎞️ PlayerJY解析</option>
+            </select>
+        </div>
+
+        <button onclick="parseVideo()">▶️ 立即解析</button>
+
+        <div class="loader" id="loader"></div>
+        <iframe id="player" allow="autoplay; fullscreen" allowfullscreen title="视频播放器"></iframe>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
