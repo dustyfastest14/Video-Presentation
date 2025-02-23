@@ -3,7 +3,7 @@
 
 📺 多平台视频解析工具 | 支持明暗主题切换 | 开箱即用
 
-![Demo](https://via.placeholder.com/800x400.png?text=Demo+Screenshot)
+![Demo](https://jx.ddmm.cloudns.biz)
 
 ## 功能特性
 - 🚀 支持抖音/B站/腾讯视频等主流平台
