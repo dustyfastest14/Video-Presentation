@@ -1,43 +1,28 @@
-function parseVideo() {
-    const videoUrl = document.getElementById('videoUrl').value.trim();
-    const api = document.getElementById('parseApi').value;
-    const player = document.getElementById('player');
-    const loader = document.getElementById('loader');
+// 确保DOM加载后执行
+document.addEventListener('DOMContentLoaded', function() {
+  // 初始化主题状态
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.classList.toggle('dark-mode', savedTheme === 'dark');
 
-    if (!videoUrl) {
-        alert('请输入有效的视频链接');
-        return;
-    }
+  // 主题切换按钮创建(移动端优化版)
+  const themeToggle = document.createElement('button');
+  themeToggle.className = 'theme-toggle';
+  themeToggle.innerHTML = '🌓 主题';
+  document.body.prepend(themeToggle);
 
-    loader.style.display = 'block';
-    player.style.display = 'none';
+  // 双事件监听兼容方案
+  themeToggle.addEventListener('touchstart', handleThemeToggle, { passive: true });
+  themeToggle.addEventListener('click', handleThemeToggle);
 
-    const encodedUrl = encodeURIComponent(videoUrl);
-    const timestamp = new Date().getTime();
-    player.src = `${api}${encodedUrl}&_t=${timestamp}`;
-
-    player.onload = () => {
-        loader.style.display = 'none';
-        player.style.display = 'block';
-    };
-
-    player.onerror = () => {
-        loader.style.display = 'none';
-        alert('解析失败，请尝试更换接口');
-    };
-}
-
-document.getElementById('videoUrl').addEventListener('keypress', e => {
-    if (e.key === 'Enter') parseVideo();
+  function handleThemeToggle(e) {
+    e.preventDefault();
+    document.documentElement.classList.toggle('dark-mode');
+    const newTheme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+    
+    // 触觉反馈兼容方案
+    try { navigator.vibrate(15); } catch {}
+  }
 });
 
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDark);
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const isDark = localStorage.getItem('darkMode') === 'true';
-    if (isDark) document.body.classList.add('dark-mode');
-});
