@@ -16,18 +16,18 @@
         <div class="input-group">
             <label for="videoUrl">🔗 视频链接：</label>
             <input type="url" id="videoUrl" 
-                   placeholder="请输入视频链接（支持抖音、B站、腾讯视频、爱奇艺、优酷等）"
+                   placeholder="请输入视频链接（支持解析爱奇艺，腾讯，优酷，乐视，芒果，搜狐，土豆，PPTV，华数TV，ACFUN，哔哩哔哩，M3U8，1905电影，酷6，56视频等网站视频。）"
                    pattern="https?://.+" 
                    required>
         </div>
 
         <div class="input-group">
-            <label for="parseApi">⚙️ 解析接口：</label>
+            <label for="parseApi">⚙️ 选择下方合适的解析接口：</label>
             <select id="parseApi">
-                <option value="https://jx.xmflv.com/?url=">🦐 虾米解析</option>
+                <option value="https://jx.2s0.cn/player/?url=">🚀 极速解析</option>
                 <option value="https://im1907.top/?jx=">🎥 M1907解析</option>
                 <option value="https://jx.xymp4.cc/?url=">🐟 咸鱼解析</option>
-                <option value="https://jx.2s0.cn/player/?url=">🚀 极速解析</option>
+                <option value="https://jx.xmflv.com/?url=">🦐 虾米解析</option>
                 <option value="https://jx.playerjy.com/?url=">🎞️ PlayerJY解析</option>
             </select>
         </div>
@@ -36,7 +36,6 @@
 
         <div class="loader" id="loader"></div>
         <iframe id="player" allow="autoplay; fullscreen" allowfullscreen title="视频播放器"></iframe>
-        <p>本站支持解析爱奇艺，腾讯，优酷，乐视，芒果，搜狐，土豆，PPTV，华数TV，ACFUN，哔哩哔哩，M3U8，1905电影，酷6，56视频等网站视频。</p>
     </div>
 
     <script src="js/script.js"></script>
