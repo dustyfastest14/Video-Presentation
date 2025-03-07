@@ -8,55 +8,69 @@
 }
 
 .dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #e0e0e0;
-    --input-bg: #2d2d2d;
-    --border-color: #404040;
+    /* 移除之前的深色模式样式 */
 }
 
 * {
     box-sizing: border-box;
     transition: all 0.3s ease;
+    font-family:LXGW WenKai;
+    font-weight:bold;
 }
 
 body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--bg-color) 0%, var(--border-color) 100%);
     color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    position: relative;
 }
 
 .container {
-    background: rgba(var(--input-bg), 0.95);
+    background: rgba(255, 255, 255, 0.2); /* 统一使用半透明白色背景 */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     width: 95%;
     max-width: 1200px;
     position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#video-container {
+   border-radius: 10px;
+   overflow: hidden;
 }
 
 .theme-toggle {
-    position: absolute;
+    position: fixed; /* 改为固定定位，让它在页面右上角 */
     top: 20px;
     right: 20px;
     padding: 8px 16px;
     border-radius: 20px;
-    background: var(--primary-color);
-    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: #fff; /* 固定为白色，更容易看清 */
     cursor: pointer;
     font-size: 14px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* 确保按钮始终在最上层 */
 }
 
 .theme-toggle:hover {
-    background: var(--hover-color);
-    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* 视口优化 */
@@ -171,7 +185,15 @@ button:hover {
     border: none;
     border-radius: 8px;
     margin-top: 2rem;
-    background: #000;
+    background: rgba(255, 255, 255, 0.1); /* 改为 90% 透明 */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 夜间模式下的播放器样式 */
+.dark-mode #player {
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .loader {
@@ -188,4 +210,95 @@ button:hover {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/*白天背景图*/
+.hope-ui-light {
+    background-image: url("https://hefollo.com/apis.php?type=电脑端-动漫图片") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position-x: center;
+}
+/*夜间背景图*/
+.hope-ui-dark {
+    background-image: url("https://hefollo.com/apis.php?type=电脑端-动漫图片") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position-x: center;
+    position: relative;
+}
+
+/* 夜间模式下添加遮罩层 - 加重暗色效果 */
+.hope-ui-dark::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 加重黑色遮罩透明度 */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.history-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    margin-top: 4px;
+}
+
+.history-dropdown.show {
+    display: block;
+}
+
+.history-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item:hover {
+    background: rgba(33, 150, 243, 0.1);
+}
+
+/* 深色模式样式 */
+.dark-mode .history-dropdown {
+    background: rgba(0, 0, 0, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .history-item {
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .history-item:hover {
+    background: rgba(255, 255, 255, 0.1);
 }

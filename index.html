@@ -6,19 +6,25 @@
     <meta name="description" content="多功能视频解析工具，支持主流平台视频解析播放">
     <title>智能视频解析助手</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+    <link type='text/css' rel="stylesheet" href="https://npm.elemecdn.com/font6pro@6.0.1/css/fontawesome.min.css" media='all'>
+    <link href="https://npm.elemecdn.com/font6pro@6.0.1/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.png">
 </head>
-<body>
+<body class="hope-ui-light">
     <div class="container">
-        <div class="theme-toggle" onclick="toggleTheme()">🌓 切换模式</div>
+        <div class="theme-toggle" onclick="toggleTheme()">🌓 白天/黑夜</div>
         <h1>🎬 智能视频解析助手</h1>
         
         <div class="input-group">
             <label for="videoUrl">🔗 视频链接：</label>
-            <input type="url" id="videoUrl" 
-                   placeholder="请输入视频链接（支持解析爱奇艺，腾讯，优酷，乐视，芒果，搜狐，土豆，PPTV，华数TV，ACFUN，哔哩哔哩，M3U8，1905电影，酷6，56视频等网站视频。）"
-                   pattern="https?://.+" 
-                   required>
+            <div class="input-wrapper">
+                <input type="url" id="videoUrl" 
+                       placeholder="请输入视频链接（支持解析爱奇艺，腾讯，优酷，乐视，芒果，搜狐，土豆，PPTV，华数TV，ACFUN，哔哩哔哩，M3U8，1905电影，酷6，56视频等网站视频。）"
+                       pattern="https?://.+" 
+                       required>
+                <div class="history-dropdown" id="historyDropdown"></div>
+            </div>
         </div>
 
         <div class="input-group">
@@ -38,8 +44,11 @@
         <iframe id="player" allow="autoplay; fullscreen" allowfullscreen title="视频播放器"></iframe>
     </div>
 
-    <script src="js/script.js"></script>
-    
+    <span class="js-cursor-container"></span>
 
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mocchen/cssmeihua/js/yanhuabowen.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mocchen/cssmeihua/js/xiaoxingxing.js"></script>
 </body>
 </html>
