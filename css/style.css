@@ -4,10 +4,22 @@
     margin-top: 2rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+}}
 
 .github-link {
     color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.github-link:hover {
+    opacity: 1;
+}
+
+.github-link i {
+    margin: 0 4px;
 }
 :root {
     --primary-color: #2196F3;
@@ -308,8 +320,16 @@ button:hover {
 .dark-mode .history-item {
     color: #fff;
     border-bottom-color: rgba(255, 255, 255, 0.1);
-}
+}}
 
 .dark-mode .history-item:hover {
     background: rgba(255, 255, 255, 0.1);
 }
+.dark-mode .footer {.dark-mode .footer {
+    border-top-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .github-link {
+    color: rgba(255, 255, 255, 0.8);
+}
+                    
