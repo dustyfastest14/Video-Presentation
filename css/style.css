@@ -1,3 +1,14 @@
+/* 添加页脚样式 */
+.footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.github-link {
+    color: var(--text-color);
+}
 :root {
     --primary-color: #2196F3;
     --hover-color: #1976D2;
