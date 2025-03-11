@@ -1,9 +1,9 @@
 /* 添加页脚样式 */
 .footer {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 2rem;保证金顶：2REM;
     padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);边界顶：1PX实心RGBA（255、255、255、0.1）;
 }}
 
 .github-link {
@@ -212,6 +212,7 @@ button:hover {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    display: none; 
 }
 
 /* 夜间模式下的播放器样式 */
