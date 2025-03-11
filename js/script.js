@@ -55,6 +55,7 @@ function parseVideo() {
     // 添加到历史记录
     addToHistory(videoUrl);
 
+  // 显示加载动画，隐藏播放器
     loader.style.display = 'block';
     player.style.display = 'none';
 
@@ -63,12 +64,15 @@ function parseVideo() {
     player.src = `${api}${encodedUrl}&_t=${timestamp}`;
 
     player.onload = () => {
-        loader.style.display = 'none';
-        player.style.display = 'block';
+    // 加载完成后，隐藏加载动画，显示播放器
+    loader.style.display = 'none';
+    player.style.display = 'block';
     };
 
     player.onerror = () => {
+        // 发生错误时，隐藏加载动画和播放器};
         loader.style.display = 'none';
+        player.style.display = 'none';
         alert('解析失败，请尝试更换接口');
     };
 }
